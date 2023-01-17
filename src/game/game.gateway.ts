@@ -27,9 +27,9 @@ export class GameGateway implements OnGatewayConnection, OnGatewayDisconnect {
     this.server.emit('users', this.users);
   }
 
-  @SubscribeMessage('chat')
-  async onChat(client, message) {
-    console.log(message)
-    client.broadcast.emit('chat', message);
+  @SubscribeMessage('start')
+  async onChat(client, name) {
+    console.log(name)
+    client.broadcast.emit('chat', name);
   }
 }
